@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pemain</title>
+    <Tautan ke CSS atau framework CSS yang Anda gunakan, seperti Bootstrap -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #00416a, #e4e5e6);
+        }
+    </style>
+</head>
+ <body>
+    <div class="mb-3">
+        <a href="/timnas" class="btn btn-secondary">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.354 11.354a.5.5 0 0 1 0-.708L2.707 8.5l2.647-2.646a.5.5 0 0 1 .708.708L4.207 8.5l2.647 2.646a.5.5 0 0 1-.708.708L2.707 8.5l2.647 2.646z"/>
+                <path fill-rule="evenodd" d="M3.5 8.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            Kembali
+        </a>
+    </div>
+   
+    <div class="container">
+        <h1 class="mt-5">Detail Pemain</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                
+                <p><strong>Nama:</strong> <%= timnas.nama %></p>
+                <p><strong>Nomor Punggung:</strong> <%= timnas.no_punggung %></p>
+                <p><strong>Posisi:</strong> <%= timnas.posisi %></p>
+               
+                 <p><strong></strong> <img src="<%= timnas.gambar %>" class="img-fluid rounded" alt="Gambar Pemain" style="width: 300px; height: 450;"></p>
+                <p><strong>Klub:</strong> <%= timnas.klub %></p>
+                <p><strong>Tanggal Naturalisasi:</strong> <%= timnas.tanggal_naturalisasi %></p>
+            </div>
+        </div>
+    </div> 
+
+</body>
+</html>

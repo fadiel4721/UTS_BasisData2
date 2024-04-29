@@ -1,0 +1,91 @@
+
+  <!-- <Tautan ke Font Awesome --> 
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<style>
+    body {
+        background: linear-gradient(to right, #FF0000, #e4e5e6);
+    } 
+ </style>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+       <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-sm"
+        data-toggle="modal"
+        data-target="#add-modal"
+      >
+      <i class="fas fa-plus"></i>Tambahkan data pemain timnas
+      </button>
+      <a href="/timnas_cards" class="btn btn-outline-primary btn-sm ml-2">
+        <i class="fas fa-home"></i> Home
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>No.Punggung</th>
+              <th>Posisi</th>
+              <th>Foto</th>
+              <th>Klub</th>
+              <th>Tanggal Naturalisasi</th>
+              <th>Action</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < timnas.length; i++){ %>
+            <tr>
+              <td><%= i +1 %></td>
+              <td><%= timnas[i].nama %></td>
+              <td><%= timnas[i].no_punggung %></td>
+              <td><%= timnas[i].posisi %></td>
+              <td> <img
+                src="<%= timnas[i].gambar %>"
+                alt="Product Image"
+                class="img-thumbnail"
+                width="130"
+              /></td>
+              <td><%= timnas[i].klub %></td>
+              <td><%= new Date(timnas[i].tanggal_naturalisasi).toLocaleDateString('id-ID') %></td>
+              <td class="text-center">
+                <form action="/timnas/<%= timnas[i].id %>?_method=DELETE" method="POST">
+                <a
+                href="javascript:void()"
+                class="btn btn-outline-warning btn-sm button-update"
+                data-id="<%= timnas[i].id %>"
+                data-nama="<%= timnas[i].nama %>"
+                data-no_punggung="<%= timnas[i].no_punggung %>"
+                data-posisi="<%= timnas[i].posisi %>"
+                data-gambar="<%= timnas[i].gambar %>"
+                data-klub="<%= timnas[i].klub %>"
+                data-tanggal_naturalisasi="<%= timnas[i].tanggal_naturalisasi %>"
+                >Edit <i class="fas fa-edit"></i></a>
+                <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apa kamu yakin ingin menghapus data pemain timnas?');">
+                    <i class="fas fa-trash-alt"></i>  Delete
+                </button>
+            </form>
+              </td>
+              <td class="text-center">
+                
+                <a href="/timnas/<%= timnas[i]._id %>" class="btn btn-primary btn-sm">Detail Pemain</a>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div> 
+  </div> 

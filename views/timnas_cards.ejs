@@ -1,0 +1,91 @@
+<!-- views/timnas_cards.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timnas Cards</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF0000, #e4e5e6);
+        }
+
+        .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 40px; /* Ubah nilai ini sesuai kebutuhan Anda */
+}
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .logo-garuda {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: auto;
+        }
+      
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="d-flex justify-content-between align-items-center px-3 py-2">
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/2022TimnasGarudaLogo.png" alt="Garuda Logo" class="logo-garuda"> -->
+        <a href="/timnas/add" class="btn btn-primary">Tambah Data</a>
+    </header>
+    <div class="container">
+        <h1 class="mt-5 mb-4 text-center">Daftar Nama Pemain Timnas U-21</h1>
+        <div class="row">
+            <% for(let i = 0; i < timnas.length; i++){ %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="<%= timnas[i].gambar %>" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= timnas[i].nama %></h5>
+                            <p class="card-text">Nomor Punggung: <%= timnas[i].no_punggung %></p>
+                            <p class="card-text">Posisi: <%= timnas[i].posisi %></p>
+                            <p class="card-text">Klub: <%= timnas[i].klub %></p>
+                            <p class="card-text">Tanggal Naturalisasi: <%= new Date(timnas[i].tanggal_naturalisasi).toLocaleDateString('id-ID') %></p>
+                            <a href="/timnas/<%= timnas[i]._id %>" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

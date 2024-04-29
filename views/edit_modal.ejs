@@ -1,0 +1,96 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="edit-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Timnas</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/timnas?_method=PUT" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="nama">Nama</label>
+            <input
+              type="text"
+              class="form-control nama"
+              name="nama"
+              placeholder="Enter Nama"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="no_punggung">Nomor Punggung</label>
+            <input
+              type="number"
+              class="form-control no_punggung"
+              name="no_punggung"
+              placeholder="Enter Nomor Punggung"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="posisi">Posisi</label>
+            <input
+              type="text"
+              class="form-control posisi"
+              name="posisi"
+              placeholder="Enter Posisi Pemain"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="gambar">Gambar</label>
+            <input
+              type="url"
+              class="form-control gambar"
+              name="gambar"
+              placeholder="Enter URL Gambar"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="klub">Klub</label>
+            <input
+              type="text"
+              class="form-control klub"
+              name="klub"
+              placeholder="Enter Klub"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="tanggal_naturalisasi">Tanggal Naturalisasi</label>
+            <input
+              type="date"
+              class="form-control tanggal_naturalisasi"
+              name="tanggal_naturalisasi"
+              placeholder="Enter Tanggal Naturalisasi"
+              
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" class="id" name="id" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
